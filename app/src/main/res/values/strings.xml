@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PrisonFantasy</string>
+    <string name="create_identity">Créez votre identité fictive (et retenez la bien !) :</string>
+    <string name="last_name">Nom</string>
+    <string name="first_name">Prénom</string>
+    <string name="birthday_text">Date de naissance :</string>
+    <string name="choose_height">Taille</string>
+    <string name="choose_weight">Poids</string>
+    <string name="select_gender">Choisissez un genre pour la lecture :</string>
+    <string name="result_gender_f">Féminin</string>
+    <string name="result_gender_m">Masculin</string>
+</resources>
