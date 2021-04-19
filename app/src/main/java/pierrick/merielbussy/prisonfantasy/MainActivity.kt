@@ -3,22 +3,20 @@ package pierrick.merielbussy.prisonfantasy
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.*
-import android.content.Context
 import android.content.Intent
-import android.provider.Settings.Global.getString
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 var genderSelected = "testResultGender"
-var resultGender = ""
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        findViewById<TextView>(R.id.resultGender).text = getString(R.string.result_gender_f)
 
+
+        findViewById<TextView>(R.id.resultGender).text = getString(R.string.result_gender_f)
 
                 val selectGender = findViewById<Switch>(R.id.switchGenderButton)
 
@@ -45,8 +43,9 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this, FirstActivity::class.java)
                 startActivity(intent)
             }
-
         }
     }
+
 }
+
 
