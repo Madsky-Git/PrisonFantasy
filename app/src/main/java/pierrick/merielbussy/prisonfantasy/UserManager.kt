@@ -1,7 +1,6 @@
 package pierrick.merielbussy.prisonfantasy
 
 import android.content.Context
-import android.widget.Toast
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -16,7 +15,7 @@ class UserManager(context: Context) {
     companion object {
         val CHAR_LASTNAME_KEY = stringPreferencesKey("CHAR_LASTNAME")
         val CHAR_FIRSTNAME_KEY = stringPreferencesKey("CHAR_FIRSTNAME")
-        val CHAR_BIRTHDAY_KEY = intPreferencesKey("CHAR_BIRTHDAY")
+        val CHAR_AGE_KEY = intPreferencesKey("CHAR_AGE")
         val CHAR_HEIGHT_KEY = intPreferencesKey("CHAR_HEIGHT")
         val CHAR_WEIGHT_KEY = intPreferencesKey("CHAR_WEIGHT")
         val CHAR_GENDER_KEY = stringPreferencesKey("CHAR_GENDER")
@@ -26,7 +25,7 @@ class UserManager(context: Context) {
         dataStore.edit {
             it[CHAR_LASTNAME_KEY] = lastname
             it[CHAR_FIRSTNAME_KEY] = firstname
-            it[CHAR_BIRTHDAY_KEY] = age
+            it[CHAR_AGE_KEY] = age
             it[CHAR_HEIGHT_KEY] = height
             it[CHAR_WEIGHT_KEY] = weight
             it[CHAR_GENDER_KEY] = gender
@@ -37,7 +36,7 @@ class UserManager(context: Context) {
 
     val userFirstNameFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {it[CHAR_FIRSTNAME_KEY] ?: ""}
 
-    val userAgeFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[CHAR_BIRTHDAY_KEY] ?: 0}
+    val userAgeFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[CHAR_AGE_KEY] ?: 0}
 
     val userHeightFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[CHAR_HEIGHT_KEY] ?: 0}
 

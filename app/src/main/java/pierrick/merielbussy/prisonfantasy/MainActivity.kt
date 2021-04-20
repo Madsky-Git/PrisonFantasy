@@ -22,9 +22,9 @@ var weight = 0
 var gender = ""
 
 val c: Calendar = Calendar.getInstance()
-val cYear = c.get(Calendar.YEAR)
-val cMonth = c.get(Calendar.MONTH)
-val cDay = c.get(Calendar.DAY_OF_MONTH)
+var cYear = c.get(Calendar.YEAR)
+var cMonth = c.get(Calendar.MONTH)
+var cDay = c.get(Calendar.DAY_OF_MONTH)
 
 var rYear = cYear
 var rMonth = cMonth
@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         userManager = UserManager(this)
 
         datePicker.init(cYear, cMonth, cDay) {
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             rYear = datePicker.year
             rMonth = datePicker.month
             rDay = datePicker.dayOfMonth
-            age = cYear - rYear
         }
 
         saveUserCreated()
@@ -81,37 +79,46 @@ class MainActivity : AppCompatActivity() {
             gender = it
             resultGender.text = it.toString()
         })
+        userManager.userAgeFlow.asLiveData().observe(this, {
+            age = it
+        })
     }
 
     fun onValidate(button:View) {
-        buttonCreateID.setOnClickListener {
+        calculateAge()
 
+        if (age <18){
+            Toast.makeText(getApplicationContext(), "Votre personnage doit être majeur", Toast.LENGTH_LONG).show()
+        }
+        else if (height <100 /*|| height >200*/){
+            Toast.makeText(getApplicationContext(), "La taille doit être entre 100 et 200 cm", Toast.LENGTH_LONG).show()
+        }
+        else if (weight <50 /*|| weight <200*/){
+            Toast.makeText(getApplicationContext(), "Le poids doit être entre 50 et 200 kg", Toast.LENGTH_LONG).show()
+        }
+        else {
+            lastname = createLastName.text.toString()
+            firstname = createFirstName.text.toString()
+            height = characterHeight.text.toString().toInt()
+            weight = characterWeight.text.toString().toInt()
+            gender = resultGender.text.toString()
+            age = age.toString().toInt()
 
-            if (age <18){
-                Toast.makeText(getApplicationContext(), "Votre personnage doit être majeur", Toast.LENGTH_LONG).show()
-            }
+            GlobalScope.launch { userManager.storeUser(lastname, firstname, age, height, weight, gender) }
 
-            else if (height <100 /*|| height >200*/){
-                Toast.makeText(getApplicationContext(), "La taille doit être entre 100 et 200 cm", Toast.LENGTH_LONG).show()
-            }
+            val intent = Intent(this, FirstActivity::class.java)
+            startActivity(intent)
+        }
+    }
 
-            else if (weight <50 /*|| weight <200*/){
-                Toast.makeText(getApplicationContext(), "Le poids doit être entre 50 et 200 kg", Toast.LENGTH_LONG).show()
-            }
+    fun calculateAge() {
+        age = cYear - rYear
 
-            else {
-                lastname = createLastName.text.toString()
-                firstname = createFirstName.text.toString()
-                height = characterHeight.text.toString().toInt()
-                weight = characterWeight.text.toString().toInt()
-                gender = resultGender.text.toString()
-
-                GlobalScope.launch { userManager.storeUser(lastname, firstname, age, height, weight, gender) }
-
-                val intent = Intent(this, FirstActivity::class.java)
-                startActivity(intent)
-            }
-
+        if (rMonth < cMonth){
+            age -= 1
+        }
+        else if (rMonth == cMonth && rDay < cDay) {
+            age -= 1
         }
     }
 
