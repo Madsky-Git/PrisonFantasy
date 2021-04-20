@@ -10,6 +10,7 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_first)
 
-        findViewById<TextView>(R.id.fullTextView).text = genderSelected
+        findViewById<TextView>(R.id.fullTextView).text = "Perso = \n$lastname\n$firstname\n$age\n$height\n$weight\n$gender"
+
     }
 }

@@ -13,4 +13,5 @@
 
     <string name="error_height_value">La taille doit être au minimum 100cm</string>
     <string name="error_weight_value">Le poids doit être entre 50 et 200 kg</string>
+    <string name="error_age_value">Votre personnage doit être majeur</string>
 </resources>
