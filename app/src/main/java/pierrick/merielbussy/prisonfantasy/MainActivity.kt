@@ -12,7 +12,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.util.*
 
-
 lateinit var userManager: UserManager
 
 var lastname = ""
@@ -38,22 +37,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         userManager = UserManager(this)
 
-        datePicker.init(cYear, cMonth, cDay,
-            DatePicker.OnDateChangedListener {view, year, monthOfYear, dayOfMonth ->
-                rYear = datePicker.year
-                rMonth = datePicker.month
-                rDay = datePicker.dayOfMonth
-                age = cYear - rYear
-            })
+        datePicker.init(cYear, cMonth, cDay) {
+            view, year, monthOfYear, dayOfMonth ->
+            rYear = datePicker.year
+            rMonth = datePicker.month
+            rDay = datePicker.dayOfMonth
+            age = cYear - rYear
+        }
 
         saveUserCreated()
 
-        findViewById<TextView>(R.id.resultGender).text = getString(R.string.result_gender_f)
-                val selectGender = findViewById<Switch>(R.id.switchGenderButton)
+        resultGender.text = getString(R.string.result_gender_f)
+                val selectGender = switchGenderButton
                 selectGender.setOnCheckedChangeListener {selectGender, _ ->
-                    findViewById<TextView>(R.id.resultGender).text = if (selectGender.isChecked)
+                    resultGender.text = if (selectGender.isChecked)
                         getString(R.string.result_gender_m)
                     else
                         getString(R.string.result_gender_f)
@@ -79,38 +79,39 @@ class MainActivity : AppCompatActivity() {
         })
         userManager.userGenderFlow.asLiveData().observe(this, {
             gender = it
-            findViewById<TextView>(R.id.resultGender).text = it.toString()
+            resultGender.text = it.toString()
         })
     }
 
     fun onValidate(button:View) {
-        findViewById<Button>(R.id.buttonCreateID).setOnClickListener {
+        buttonCreateID.setOnClickListener {
 
 
-            /*
-        if (age <18){
-            Toast.makeText(context, "Votre personnage doit être majeur", Toast.LENGTH_SHORT).show()
-        }
+            if (age <18){
+                Toast.makeText(getApplicationContext(), "Votre personnage doit être majeur", Toast.LENGTH_LONG).show()
+            }
 
-        if (height <100 || height >200){
-            Toast.makeText(context, "La taille doit être entre 100 et 200 cm", Toast.LENGTH_SHORT).show()
-        }
+            else if (height <100 /*|| height >200*/){
+                Toast.makeText(getApplicationContext(), "La taille doit être entre 100 et 200 cm", Toast.LENGTH_LONG).show()
+            }
 
-        if (weight <50 || weight >200){
-            Toast.makeText(context, "Le poids doit être entre 50 et 200 kg", Toast.LENGTH_SHORT).show()
-        }
-             */
+            else if (weight <50 /*|| weight <200*/){
+                Toast.makeText(getApplicationContext(), "Le poids doit être entre 50 et 200 kg", Toast.LENGTH_LONG).show()
+            }
 
-            lastname = findViewById<TextView>(R.id.createLastName).text.toString()
-            firstname = findViewById<TextView>(R.id.createFirstName).text.toString()
-            height = findViewById<TextView>(R.id.characterHeight).text.toString().toInt()
-            weight = findViewById<TextView>(R.id.characterWeight).text.toString().toInt()
-            gender = findViewById<TextView>(R.id.resultGender).text.toString()
+            else {
+                lastname = createLastName.text.toString()
+                firstname = createFirstName.text.toString()
+                height = characterHeight.text.toString().toInt()
+                weight = characterWeight.text.toString().toInt()
+                gender = resultGender.text.toString()
 
-            GlobalScope.launch {userManager.storeUser(lastname, firstname, age, height, weight, gender)}
+                GlobalScope.launch { userManager.storeUser(lastname, firstname, age, height, weight, gender) }
 
-            val intent = Intent(this, FirstActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this, FirstActivity::class.java)
+                startActivity(intent)
+            }
+
         }
     }
 
