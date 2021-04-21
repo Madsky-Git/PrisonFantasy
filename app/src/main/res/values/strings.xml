@@ -1,18 +1,29 @@
 <resources>
     <string name="app_name">PrisonFantasy</string>
 
+    <!-- ELEMENTS GRAPHIQUES FORMULAIRE CREATION PERSONNAGE -->
     <string name="create_identity">Créez votre identité fictive (et retenez la bien !) :</string>
     <string name="last_name">Nom</string>
     <string name="first_name">Prénom</string>
     <string name="birthday_text">Date de naissance :</string>
     <string name="choose_height">Taille</string>
     <string name="choose_weight">Poids</string>
-    <string name="select_gender">Choisissez un genre pour la lecture :</string>
+    <string name="select_gender">Choisissez un genre pour adapter les textes :</string>
     <string name="result_gender_f">Féminin</string>
     <string name="result_gender_m">Masculin</string>
+    <string name="validate_identity">Valider</string>
 
-    <string name="error_height_value">La taille doit être au minimum 100cm</string>
-    <string name="error_weight_value">Le poids doit être entre 50 et 200 kg</string>
+    <!-- ERREURS CHAMPS VIDES FORMULAIRE CREATION PERSONNAGE -->
+    <string name="error_lastname_empty">Vous devez choisir un nom de famille</string>
+    <string name="error_firstname_empty">Vous devez choisir un prénom</string>
+    <string name="error_height_empty">Vous devez choisir une taille</string>
+    <string name="error_weight_empty">Vous devez choisir un poids</string>
+
+    <!-- ERREURS VALEURS INCORRECTES FORMULAIRE CREATION PERSONNAGE -->
+    <string name="error_height_value">La taille doit être entre 100 et 250 cm</string>
+    <string name="error_weight_value">Le poids doit être entre 30 et 300 kg</string>
     <string name="error_age_value">Votre personnage doit être majeur</string>
+
+    <!-- LOREM IPSUM -->
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper magna non iaculis molestie. Etiam augue metus, fermentum sit amet leo a, accumsan rhoncus risus. Maecenas id aliquet sem. Suspendisse vehicula cursus semper. Nulla fringilla augue lacus, id convallis leo scelerisque in. Sed ut sapien lacinia, sagittis nisi non, tristique purus. Curabitur sed posuere quam. In hac habitasse platea dictumst. Maecenas ac erat tortor. Nam sagittis vitae ex vitae luctus. Maecenas volutpat mi ut tellus semper, in cursus augue bibendum. Donec eget turpis quis lectus vestibulum molestie euismod et dui. Donec ut leo ac magna ullamcorper semper et et tortor. Pellentesque diam nulla, dictum id feugiat sit amet, viverra gravida felis. Maecenas a neque velit. Vestibulum rutrum eget nunc id placerat. Aliquam semper, justo ut eleifend dictum, turpis erat viverra purus, ut mollis metus diam sed sem. Proin dignissim eros non ex pellentesque, consectetur tristique arcu consequat. Aenean feugiat sapien vel nulla consequat, non consequat diam congue. Nulla ornare erat et aliquam fringilla. Praesent quis ante tellus. Nam lobortis dictum dolor. Phasellus non elit elementum, elementum metus et, tempor tortor.</string>
 </resources>

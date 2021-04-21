@@ -6,7 +6,9 @@ import android.widget.*
 import android.content.Intent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+/*
 import androidx.lifecycle.asLiveData
+ */
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -17,19 +19,18 @@ lateinit var userManager: UserManager
 var lastname = ""
 var firstname = ""
 var age = 0
+var gender = ""
 var height = 0
 var weight = 0
-var gender = ""
 
 val c: Calendar = Calendar.getInstance()
-var cYear = c.get(Calendar.YEAR)
-var cMonth = c.get(Calendar.MONTH)
-var cDay = c.get(Calendar.DAY_OF_MONTH)
+val cYear = c.get(Calendar.YEAR)
+val cMonth = c.get(Calendar.MONTH)
+val cDay = c.get(Calendar.DAY_OF_MONTH)
 
-var rYear = cYear
-var rMonth = cMonth
-var rDay = cDay
-
+var rYear = 0
+var rMonth = 0
+var rDay = 0
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
@@ -38,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         userManager = UserManager(this)
+        gender = getString(R.string.result_gender_f)
 
         datePicker.init(cYear, cMonth, cDay) {
             view, year, monthOfYear, dayOfMonth ->
@@ -46,68 +48,85 @@ class MainActivity : AppCompatActivity() {
             rDay = datePicker.dayOfMonth
         }
 
+        // A UTILISER DANS LES AUTRES ACTIVITES
+        /*
         saveUserCreated()
+         */
 
-        resultGender.text = getString(R.string.result_gender_f)
-                val selectGender = switchGenderButton
-                selectGender.setOnCheckedChangeListener {selectGender, _ ->
-                    resultGender.text = if (selectGender.isChecked)
-                        getString(R.string.result_gender_m)
-                    else
-                        getString(R.string.result_gender_f)
+        val selectGender = switchGenderButton
+        selectGender.setOnCheckedChangeListener {selectGender, _ ->
+            resultGender.text = if (selectGender.isChecked)
+                                    getString(R.string.result_gender_m)
+                                else
+                                    getString(R.string.result_gender_f)
         }
     }
 
+    /*
     private fun saveUserCreated() {
         userManager.userLastNameFlow.asLiveData().observe(this, {
             lastname = it
-            findViewById<TextView>(R.id.createLastName).text = it.toString()
         })
         userManager.userFirstNameFlow.asLiveData().observe(this, {
             firstname = it
-            findViewById<TextView>(R.id.createFirstName).text = it.toString()
         })
         userManager.userHeightFlow.asLiveData().observe(this, {
             height = it
-            findViewById<TextView>(R.id.characterHeight).text = it.toString()
         })
         userManager.userWeightFlow.asLiveData().observe(this, {
             weight = it
-            findViewById<TextView>(R.id.characterWeight).text = it.toString()
         })
         userManager.userGenderFlow.asLiveData().observe(this, {
             gender = it
-            resultGender.text = it.toString()
         })
         userManager.userAgeFlow.asLiveData().observe(this, {
             age = it
         })
     }
+     */
 
     fun onValidate(button:View) {
         calculateAge()
 
-        if (age <18){
-            Toast.makeText(getApplicationContext(), "Votre personnage doit être majeur", Toast.LENGTH_LONG).show()
+        if (createLastName.text.isEmpty()){
+            Toast.makeText(applicationContext, getString(R.string.error_lastname_empty), Toast.LENGTH_LONG).show()
         }
-        else if (height <100 /*|| height >200*/){
-            Toast.makeText(getApplicationContext(), "La taille doit être entre 100 et 200 cm", Toast.LENGTH_LONG).show()
+        else if (createFirstName.text.isEmpty()) {
+            Toast.makeText(applicationContext, getString(R.string.error_firstname_empty), Toast.LENGTH_LONG).show()
         }
-        else if (weight <50 /*|| weight <200*/){
-            Toast.makeText(getApplicationContext(), "Le poids doit être entre 50 et 200 kg", Toast.LENGTH_LONG).show()
+        else if (characterHeight.text.isEmpty()) {
+            Toast.makeText(applicationContext, getString(R.string.error_height_empty), Toast.LENGTH_LONG).show()
+        }
+        else if (characterWeight.text.isEmpty()) {
+            Toast.makeText(applicationContext, getString(R.string.error_weight_empty), Toast.LENGTH_LONG).show()
         }
         else {
             lastname = createLastName.text.toString()
             firstname = createFirstName.text.toString()
+
             height = characterHeight.text.toString().toInt()
             weight = characterWeight.text.toString().toInt()
+
             gender = resultGender.text.toString()
+
+            // POSSIBLEMENT INUTILE
             age = age.toString().toInt()
 
-            GlobalScope.launch { userManager.storeUser(lastname, firstname, age, height, weight, gender) }
+            if (age <18){
+                Toast.makeText(applicationContext, getString(R.string.error_age_value), Toast.LENGTH_LONG).show()
+            }
+            else if (height <100 || height >250){
+                Toast.makeText(applicationContext, getString(R.string.error_height_value), Toast.LENGTH_LONG).show()
+            }
+            else if (weight <30 || weight >300){
+                Toast.makeText(applicationContext, getString(R.string.error_weight_value), Toast.LENGTH_LONG).show()
+            }
+            else {
+                GlobalScope.launch { userManager.storeUser(lastname, firstname, age, height, weight, gender) }
 
-            val intent = Intent(this, FirstActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this, FirstActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 
