@@ -133,10 +133,10 @@ class MainActivity : AppCompatActivity() {
     fun calculateAge() {
         age = cYear - rYear
 
-        if (rMonth < cMonth){
+        if (rMonth > cMonth){
             age -= 1
         }
-        else if (rMonth == cMonth && rDay < cDay) {
+        else if (rMonth == cMonth && rDay > cDay) {
             age -= 1
         }
     }
