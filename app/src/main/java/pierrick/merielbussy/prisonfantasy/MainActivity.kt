@@ -124,13 +124,13 @@ class MainActivity : AppCompatActivity() {
             else {
                 GlobalScope.launch { userManager.storeUser(lastname, firstname, age, height, weight, gender) }
 
-                val intent = Intent(this, FirstActivity::class.java)
+                val intent = Intent(this, ConfirmIdentityActivity::class.java)
                 startActivity(intent)
             }
         }
     }
 
-    fun calculateAge() {
+    private fun calculateAge() {
         age = cYear - rYear
 
         if (rMonth > cMonth){

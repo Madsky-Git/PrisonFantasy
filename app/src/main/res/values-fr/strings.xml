@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PrisonFantasy</string>
+    <string name="create_identity">Créez votre identité fictive (et retenez la bien !) :</string>
+    <string name="last_name">Nom</string>
+    <string name="first_name">Prénom</string>
+    <string name="birthday_text">Date de naissance :</string>
+    <string name="choose_height">Taille</string>
+    <string name="choose_weight">Poids</string>
+    <string name="select_gender">Choisissez un genre pour adapter les textes :</string>
+    <string name="result_gender_f">Féminin</string>
+    <string name="result_gender_m">Masculin</string>
+    <string name="validate_button">Valider</string>
+    <string name="answer_text">Réponse</string>
+    <string name="error_lastname_empty">Vous devez choisir un nom de famille</string>
+    <string name="error_firstname_empty">Vous devez choisir un prénom</string>
+    <string name="error_height_empty">Vous devez choisir une taille</string>
+    <string name="error_weight_empty">Vous devez choisir un poids</string>
+    <string name="error_answer_empty">Vous devez entrer une réponse avant de valider</string>
+    <string name="error_height_value">La taille doit être entre 100 et 250 cm</string>
+    <string name="error_weight_value">Le poids doit être entre 30 et 300 kg</string>
+    <string name="error_age_value">Votre personnage doit être majeur</string>
+    <string name="error_answer_incorrect_page1">Vous devez écrire \"Confirmer\" ou \"Annuler\"</string>
+    <string name="test_string">Ceci est un test pour afficher des variables enregistrées à l\'intérieur des textes de l\'histoire.\n\nVous venez de créer un personnage dont le prénom est %1$s et le nom de famille %2$s, sa date de naissance est le %3$d/%4$d/%5$d, il a donc aujourd\'hui %6$d ans !\n\nVous lui avez défini une taille de %7$dcm et un poids de %8$dkg.\n\nLe genre %9$s sera utilisé pour parler de votre personnage.\n\nSi votre personnage vous convient, veuillez écrire \"Confirmer\" puis validez, si vous voulez créer un personnage différent, veuillez écrire \"Annuler\" puis validez.</string>
+    <string name="test_string2">TEST :  %1$s, %2$s, %3$d, %4$d, %5$d, %6$d, %7$d, %8$d, %9$s</string>
+    <string name="confirm">CONFIRMER</string>
+    <string name="cancel">ANNULER</string>
+</resources>

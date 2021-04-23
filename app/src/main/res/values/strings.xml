@@ -1,39 +1,45 @@
 <resources>
     <string name="app_name">PrisonFantasy</string>
 
-    <!-- ELEMENTS GRAPHIQUES -->
-    <string name="create_identity">Créez votre identité fictive (et retenez la bien !) :</string>
-    <string name="last_name">Nom</string>
-    <string name="first_name">Prénom</string>
-    <string name="birthday_text">Date de naissance :</string>
-    <string name="choose_height">Taille</string>
-    <string name="choose_weight">Poids</string>
-    <string name="select_gender">Choisissez un genre pour adapter les textes :</string>
-    <string name="result_gender_f">Féminin</string>
-    <string name="result_gender_m">Masculin</string>
+    <!-- GRAPHICAL ELEMENTS -->
+    <string name="create_identity">Create your fictitious identity (and remember it well !) :</string>
+    <string name="last_name">Last name</string>
+    <string name="first_name">First name</string>
+    <string name="birthday_text">Birth date :</string>
+    <string name="choose_height">Height</string>
+    <string name="choose_weight">Weight</string>
+    <string name="select_gender">Choose a gender to adapt texts :</string>
+    <string name="result_gender_f">Female</string>
+    <string name="result_gender_m">Male</string>
 
-    <string name="validate_button">Valider</string>
-    <string name="answer_text">Réponse</string>
+    <string name="validate_button">Validate</string>
+    <string name="answer_text">Answer</string>
 
-    <!-- ERREURS CHAMPS VIDES -->
-    <string name="error_lastname_empty">Vous devez choisir un nom de famille</string>
-    <string name="error_firstname_empty">Vous devez choisir un prénom</string>
-    <string name="error_height_empty">Vous devez choisir une taille</string>
-    <string name="error_weight_empty">Vous devez choisir un poids</string>
+    <!-- EMPTY FIELD ERRORS -->
+    <string name="error_lastname_empty">You have to choose a last name</string>
+    <string name="error_firstname_empty">You have to choose a first name</string>
+    <string name="error_height_empty">You have to choose a heigth</string>
+    <string name="error_weight_empty">You have to choose a weight</string>
 
 
-    <string name="error_answer_empty">Vous devez entrer une réponse avant de valider</string>
+    <string name="error_answer_empty">You have to enter an answer before validate</string>
 
-    <!-- ERREURS VALEURS INCORRECTES -->
-    <string name="error_height_value">La taille doit être entre 100 et 250 cm</string>
-    <string name="error_weight_value">Le poids doit être entre 30 et 300 kg</string>
+    <!-- INCORRECT VALUE ERRORS -->
+    <string name="error_height_value">Height should be between 100 and 250 cm</string>
+    <string name="error_weight_value">Weight should be between 30 and 300 kg</string>
     <string name="error_age_value">Votre personnage doit être majeur</string>
 
-    <string name="error_answer_incorrect_page1">Vous devez écrire \"Confirmer\" ou \"Annuler\"</string>
+    <string name="error_answer_incorrect_page1">You must write \"Confirm\" or \"Cancel\"</string>
+
+    <!-- ANSWERS -->
+    <string name="confirm">CONFIRM</string>
+    <string name="cancel">CANCEL</string>
 
     <!-- LOREM IPSUM -->
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper magna non iaculis molestie. Etiam augue metus, fermentum sit amet leo a, accumsan rhoncus risus. Maecenas id aliquet sem. Suspendisse vehicula cursus semper. Nulla fringilla augue lacus, id convallis leo scelerisque in. Sed ut sapien lacinia, sagittis nisi non, tristique purus. Curabitur sed posuere quam. In hac habitasse platea dictumst. Maecenas ac erat tortor. Nam sagittis vitae ex vitae luctus. Maecenas volutpat mi ut tellus semper, in cursus augue bibendum. Donec eget turpis quis lectus vestibulum molestie euismod et dui. Donec ut leo ac magna ullamcorper semper et et tortor. Pellentesque diam nulla, dictum id feugiat sit amet, viverra gravida felis. Maecenas a neque velit. Vestibulum rutrum eget nunc id placerat. Aliquam semper, justo ut eleifend dictum, turpis erat viverra purus, ut mollis metus diam sed sem. Proin dignissim eros non ex pellentesque, consectetur tristique arcu consequat. Aenean feugiat sapien vel nulla consequat, non consequat diam congue. Nulla ornare erat et aliquam fringilla. Praesent quis ante tellus. Nam lobortis dictum dolor. Phasellus non elit elementum, elementum metus et, tempor tortor.</string>
+    <string name="lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper magna non iaculis molestie. Etiam augue metus, fermentum sit amet leo a, accumsan rhoncus risus. Maecenas id aliquet sem. Suspendisse vehicula cursus semper. Nulla fringilla augue lacus, id convallis leo scelerisque in. Sed ut sapien lacinia, sagittis nisi non, tristique purus. Curabitur sed posuere quam. In hac habitasse platea dictumst. Maecenas ac erat tortor. Nam sagittis vitae ex vitae luctus. Maecenas volutpat mi ut tellus semper, in cursus augue bibendum. Donec eget turpis quis lectus vestibulum molestie euismod et dui. Donec ut leo ac magna ullamcorper semper et et tortor. Pellentesque diam nulla, dictum id feugiat sit amet, viverra gravida felis. Maecenas a neque velit. Vestibulum rutrum eget nunc id placerat. Aliquam semper, justo ut eleifend dictum, turpis erat viverra purus, ut mollis metus diam sed sem. Proin dignissim eros non ex pellentesque, consectetur tristique arcu consequat. Aenean feugiat sapien vel nulla consequat, non consequat diam congue. Nulla ornare erat et aliquam fringilla. Praesent quis ante tellus. Nam lobortis dictum dolor. Phasellus non elit elementum, elementum metus et, tempor tortor.</string>
 
     <!-- STRING TESTING -->
     <string name="test_string">Ceci est un test pour afficher des variables enregistrées à l\'intérieur des textes de l\'histoire.\n\nVous venez de créer un personnage dont le prénom est %1$s et le nom de famille %2$s, sa date de naissance est le %3$d/%4$d/%5$d, il a donc aujourd\'hui %6$d ans !\n\nVous lui avez défini une taille de %7$dcm et un poids de %8$dkg.\n\nLe genre %9$s sera utilisé pour parler de votre personnage.\n\nSi votre personnage vous convient, veuillez écrire \"Confirmer\" puis validez, si vous voulez créer un personnage différent, veuillez écrire \"Annuler\" puis validez.</string>
+    <string name="test_string2">TEST :  %1$s, %2$s, %3$d, %4$d, %5$d, %6$d, %7$d, %8$d, %9$s</string>
+
 </resources>
