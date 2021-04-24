@@ -21,8 +21,12 @@
     <string name="error_weight_value">Le poids doit être entre 30 et 300 kg</string>
     <string name="error_age_value">Votre personnage doit être majeur</string>
     <string name="error_answer_incorrect_page1">Vous devez écrire \"Confirmer\" ou \"Annuler\"</string>
-    <string name="test_string">Ceci est un test pour afficher des variables enregistrées à l\'intérieur des textes de l\'histoire.\n\nVous venez de créer un personnage dont le prénom est %1$s et le nom de famille %2$s, sa date de naissance est le %3$d/%4$d/%5$d, il a donc aujourd\'hui %6$d ans !\n\nVous lui avez défini une taille de %7$dcm et un poids de %8$dkg.\n\nLe genre %9$s sera utilisé pour parler de votre personnage.\n\nSi votre personnage vous convient, veuillez écrire \"Confirmer\" puis validez, si vous voulez créer un personnage différent, veuillez écrire \"Annuler\" puis validez.</string>
+    <string name="test_string">Vous venez de créer un personnage dont le prénom est %1$s et le nom de famille %2$s. Sa date de naissance est le %3$d/%4$d/%5$d, il a donc aujourd\'hui %6$d ans !\n\nVous lui avez défini une taille de %7$dcm et un poids de %8$dkg.\n\nLe genre %9$s sera utilisé pour parler de votre personnage.\n\nSi votre personnage vous convient :\n- Veuillez écrire \"Confirmer\" puis validez\n\nSi vous voulez le modifier:\n- Veuillez écrire \"Modifier\" puis validez\n\nSi vous voulez le supprimer :\n- Veuillez écrire \"Supprimer\" puis validez</string>
     <string name="test_string2">TEST :  %1$s, %2$s, %3$d, %4$d, %5$d, %6$d, %7$d, %8$d, %9$s</string>
-    <string name="confirm">CONFIRMER</string>
-    <string name="cancel">ANNULER</string>
+    <string name="confirm_identity">CONFIRMER</string>
+    <string name="modify_identity">MODIFIER</string>
+    <string name="delete_identity">SUPPRIMER</string>
+    <string name="identity_confirmed">Identité confirmée</string>
+    <string name="resume_story_button">Reprendre l\'histoire en cours</string>
+    <string name="create_identity_button">Créer un nouveau personnage</string>
 </resources>

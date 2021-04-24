@@ -6,12 +6,17 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_confirm_identity.*
-import java.util.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class ConfirmIdentityActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_identity)
+
+        /*
+        activityNumber = 2
+         */
 
         textPage1.text = getString(R.string.test_string, firstname, lastname, rDay, rMonth+1, rYear, age, height, weight, gender)
     }
@@ -20,29 +25,48 @@ class ConfirmIdentityActivity : AppCompatActivity() {
 
         val answer = answerPage1.text.toString().toUpperCase()
 
-        if (answer.isEmpty()){
-            Toast.makeText(applicationContext, getString(R.string.error_answer_empty), Toast.LENGTH_LONG).show()
-        }
-        else {
-            if (answer.contains(getString(R.string.confirm))) {
-                nextIntent()
-            }
-            else if (answer.contains(getString(R.string.cancel))) {
-                mainIntent()
-            }
-            else {
-                Toast.makeText(applicationContext, getString(R.string.error_answer_incorrect_page1), Toast.LENGTH_LONG).show()
+        when {
+            answer.isEmpty() -> Toast.makeText(applicationContext, getString(R.string.error_answer_empty), Toast.LENGTH_LONG).show()
+            else -> {
+                when {
+                    answer.contains(getString(R.string.confirm_identity)) -> confirmIdentity()
+                    answer.contains(getString(R.string.modify_identity)) -> modifyIdentity()
+                    answer.contains(getString(R.string.delete_identity)) -> deleteIdentity()
+                    else -> Toast.makeText(applicationContext, getString(R.string.error_answer_incorrect_page1), Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
 
-    fun nextIntent() {
+    private fun confirmIdentity() {
+        storeUser()
+        Toast.makeText(applicationContext, getString(R.string.identity_confirmed), Toast.LENGTH_LONG).show()
         val intent = Intent(this, ConfirmIdentityActivity::class.java)
         startActivity(intent)
     }
 
-    fun mainIntent() {
-        val intent = Intent(this, MainActivity::class.java)
+    private fun modifyIdentity() {
+        onBackPressed()
+    }
+
+    private fun deleteIdentity() {
+        val intent = Intent(this, CreateIdentity::class.java)
         startActivity(intent)
+    }
+
+    private fun storeUser() {
+        GlobalScope.launch {
+            userManager.storeUser(
+                lastname,
+                firstname,
+                age,
+                height,
+                weight,
+                gender,
+                /*
+                activityNumber
+                 */
+            )
+        }
     }
 }
