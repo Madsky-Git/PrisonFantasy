@@ -6,17 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_confirm_identity.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class ConfirmIdentityActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirm_identity)
 
-        /*
         activityNumber = 2
-         */
+        userManager.saveUser()
 
         textPage1.text = getString(R.string.test_string, firstname, lastname, rDay, rMonth+1, rYear, age, height, weight, gender)
     }
@@ -39,7 +36,7 @@ class ConfirmIdentityActivity : AppCompatActivity() {
     }
 
     private fun confirmIdentity() {
-        storeUser()
+        userManager.saveUser()
         Toast.makeText(applicationContext, getString(R.string.identity_confirmed), Toast.LENGTH_LONG).show()
         val intent = Intent(this, ConfirmIdentityActivity::class.java)
         startActivity(intent)
@@ -50,23 +47,12 @@ class ConfirmIdentityActivity : AppCompatActivity() {
     }
 
     private fun deleteIdentity() {
-        val intent = Intent(this, CreateIdentity::class.java)
+        val intent = Intent(this, CreateIdentityActivity::class.java)
         startActivity(intent)
     }
 
-    private fun storeUser() {
-        GlobalScope.launch {
-            userManager.storeUser(
-                lastname,
-                firstname,
-                age,
-                height,
-                weight,
-                gender,
-                /*
-                activityNumber
-                 */
-            )
-        }
+    override fun onStop() {
+        super.onStop()
+        userManager.saveUser()
     }
 }

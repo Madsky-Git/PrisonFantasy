@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateIdentity">
+    tools:context=".CreateIdentityActivity">
 
     <TextView
         android:id="@+id/createIdentity"
@@ -126,7 +126,7 @@
         app:layout_constraintStart_toEndOf="@+id/switchGenderButton" />
 
     <Button
-        android:id="@+id/buttonCreateID"
+        android:id="@+id/buttonValidateIdentity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onValidate"

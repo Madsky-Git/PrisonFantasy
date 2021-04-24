@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrisonFantasy">
-        <activity android:name=".CreateIdentity" />
+        <activity android:name=".CreateIdentityActivity" />
         <activity android:name=".ConfirmIdentityActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

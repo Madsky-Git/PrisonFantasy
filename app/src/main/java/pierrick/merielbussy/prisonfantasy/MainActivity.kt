@@ -8,6 +8,7 @@ import androidx.lifecycle.asLiveData
 import java.util.*
 
 lateinit var userManager: UserManager
+lateinit var activityName: Class<*>
 
 var lastname = ""
 var firstname = ""
@@ -25,38 +26,24 @@ var rYear = 0
 var rMonth = 0
 var rDay = 0
 
-/*
-var activityNumber = 0
- */
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         userManager = UserManager(this)
+        storedData()
     }
 
     fun createIdentity(button:View) {
-        goToActivity(CreateIdentity::class.java)
-        /*
-        activityNumber = 1
-         */
+        val intent = Intent(this, CreateIdentityActivity::class.java)
+        startActivity(intent)
     }
 
     fun resumeStory(button: View) {
-        storedData()
-        /*
-        when (activityNumber) {
-            0 -> goToActivity(MainActivity::class.java)
-            1 -> goToActivity(CreateIdentity::class.java)
-            2 -> goToActivity(ConfirmIdentityActivity::class.java)
-        }
-         */
-    }
+        ConversionIntToClassName().convertInt(activityNumber)
 
-    private fun goToActivity(classname: Class<*>) {
-        val intent = Intent(this, classname)
+        val intent = Intent(this, activityName)
         startActivity(intent)
     }
 
@@ -79,11 +66,10 @@ class MainActivity : AppCompatActivity() {
         userManager.userAgeFlow.asLiveData().observe(this, {
             age = it
         })
-        /*
         userManager.userActivityFlow.asLiveData().observe(this, {
-        activityNumber = it
+            activityNumber = it
         })
-         */
+
     }
 }
 
