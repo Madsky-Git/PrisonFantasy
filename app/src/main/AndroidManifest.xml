@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrisonFantasy">
+        <activity android:name=".FirstCallActivity" />
+        <activity android:name=".StoryStartActivity" />
+        <activity android:name=".TextAnswerActivity" />
         <activity android:name=".CreateIdentityActivity" />
         <activity android:name=".ConfirmIdentityActivity" />
         <activity android:name=".MainActivity">

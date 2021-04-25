@@ -13,14 +13,13 @@ class ConfirmIdentityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_confirm_identity)
 
         activityNumber = 2
-        userManager.saveUser()
 
-        textPage1.text = getString(R.string.test_string, firstname, lastname, rDay, rMonth+1, rYear, age, height, weight, gender)
+        textSummary.text = getString(R.string.test_string, firstname, lastname, rDay, rMonth+1, rYear, age, height, weight, gender)
     }
 
     fun onValidate(button: View) {
 
-        val answer = answerPage1.text.toString().toUpperCase()
+        val answer = answerSummary.text.toString().toUpperCase()
 
         when {
             answer.isEmpty() -> Toast.makeText(applicationContext, getString(R.string.error_answer_empty), Toast.LENGTH_LONG).show()
@@ -29,7 +28,7 @@ class ConfirmIdentityActivity : AppCompatActivity() {
                     answer.contains(getString(R.string.confirm_identity)) -> confirmIdentity()
                     answer.contains(getString(R.string.modify_identity)) -> modifyIdentity()
                     answer.contains(getString(R.string.delete_identity)) -> deleteIdentity()
-                    else -> Toast.makeText(applicationContext, getString(R.string.error_answer_incorrect_page1), Toast.LENGTH_LONG).show()
+                    else -> Toast.makeText(applicationContext, getString(R.string.error_answer_incorrect_confirm_identity), Toast.LENGTH_LONG).show()
                 }
             }
         }
@@ -38,8 +37,7 @@ class ConfirmIdentityActivity : AppCompatActivity() {
     private fun confirmIdentity() {
         userManager.saveUser()
         Toast.makeText(applicationContext, getString(R.string.identity_confirmed), Toast.LENGTH_LONG).show()
-        val intent = Intent(this, ConfirmIdentityActivity::class.java)
-        startActivity(intent)
+        nextIntent()
     }
 
     private fun modifyIdentity() {
@@ -48,6 +46,11 @@ class ConfirmIdentityActivity : AppCompatActivity() {
 
     private fun deleteIdentity() {
         val intent = Intent(this, CreateIdentityActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun nextIntent() {
+        val intent = Intent(this, StoryStartActivity::class.java)
         startActivity(intent)
     }
 

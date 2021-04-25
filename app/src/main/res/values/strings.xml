@@ -11,25 +11,28 @@
     <string name="select_gender">Choose a gender to adapt texts :</string>
     <string name="result_gender_f">Female</string>
     <string name="result_gender_m">Male</string>
+    <string name="gender_title_m">Mister</string>
+    <string name="gender_title_f">Miss</string>
 
     <string name="validate_button">Validate</string>
     <string name="answer_text">Answer</string>
+    <string name="next_button">Next</string>
+
+    <string name="resume_story_button">Reprendre l\'histoire en cours</string>
+    <string name="create_identity_button">Créer un nouveau personnage</string>
 
     <!-- EMPTY FIELD ERRORS -->
     <string name="error_lastname_empty">You have to choose a last name</string>
     <string name="error_firstname_empty">You have to choose a first name</string>
     <string name="error_height_empty">You have to choose a heigth</string>
     <string name="error_weight_empty">You have to choose a weight</string>
-
-
     <string name="error_answer_empty">You have to enter an answer before validate</string>
 
     <!-- TOASTS : INCORRECT VALUE ERRORS -->
     <string name="error_height_value">Height should be between 100 and 250 cm</string>
     <string name="error_weight_value">Weight should be between 30 and 300 kg</string>
     <string name="error_age_value">Votre personnage doit être majeur</string>
-
-    <string name="error_answer_incorrect_page1">You must write \"Confirm\" or \"Cancel\"</string>
+    <string name="error_answer_incorrect_confirm_identity">You must write \"Confirm\", \"Modify\" or \"Delete\"</string>
 
     <!-- TOASTS : ANSWERS -->
     <string name="confirm_identity">CONFIRM</string>
@@ -44,9 +47,11 @@
     <string name="lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ullamcorper magna non iaculis molestie. Etiam augue metus, fermentum sit amet leo a, accumsan rhoncus risus. Maecenas id aliquet sem. Suspendisse vehicula cursus semper. Nulla fringilla augue lacus, id convallis leo scelerisque in. Sed ut sapien lacinia, sagittis nisi non, tristique purus. Curabitur sed posuere quam. In hac habitasse platea dictumst. Maecenas ac erat tortor. Nam sagittis vitae ex vitae luctus. Maecenas volutpat mi ut tellus semper, in cursus augue bibendum. Donec eget turpis quis lectus vestibulum molestie euismod et dui. Donec ut leo ac magna ullamcorper semper et et tortor. Pellentesque diam nulla, dictum id feugiat sit amet, viverra gravida felis. Maecenas a neque velit. Vestibulum rutrum eget nunc id placerat. Aliquam semper, justo ut eleifend dictum, turpis erat viverra purus, ut mollis metus diam sed sem. Proin dignissim eros non ex pellentesque, consectetur tristique arcu consequat. Aenean feugiat sapien vel nulla consequat, non consequat diam congue. Nulla ornare erat et aliquam fringilla. Praesent quis ante tellus. Nam lobortis dictum dolor. Phasellus non elit elementum, elementum metus et, tempor tortor.</string>
 
     <!-- STRING TESTING -->
-    <string name="test_string">Vous venez de créer un personnage dont le prénom est %1$s et le nom de famille %2$s. Sa date de naissance est le %3$d/%4$d/%5$d, il a donc aujourd\'hui %6$d ans !\n\nVous lui avez défini une taille de %7$dcm et un poids de %8$dkg.\n\nLe genre %9$s sera utilisé pour parler de votre personnage.\n\nSi votre personnage vous convient :\n- Veuillez écrire \"Confirmer\" puis validez\n\nSi vous voulez le modifier:\n- Veuillez écrire \"Modifier\" puis validez\n\nSi vous voulez le supprimer :\n- Veuillez écrire \"Supprimer\" puis validez</string>
+    <string name="test_string">Vous venez de créer un personnage dont le prénom est %1$s et le nom de famille %2$s. Sa date de naissance est le %3$d/%4$d/%5$d, il a donc aujourd\'hui %6$d ans !\n\nVous lui avez défini une taille de %7$dcm et un poids de %8$dkg.\n\nLe genre %9$s sera utilisé pour parler de votre personnage.\n\n\n\nSi votre personnage vous convient :\n- Veuillez écrire \"Confirmer\" puis validez\n\nSi vous voulez le modifier:\n- Veuillez écrire \"Modifier\" puis validez\n\nSi vous voulez le supprimer :\n- Veuillez écrire \"Supprimer\" puis validez</string>
     <string name="test_string2">TEST :  %1$s, %2$s, %3$d, %4$d, %5$d, %6$d, %7$d, %8$d, %9$s</string>
-    <string name="resume_story_button">Reprendre l\'histoire en cours</string>
-    <string name="create_identity_button">Créer un nouveau personnage</string>
+
+    <!-- STORY TEXTS -->
+    <string name="start_story">Le soleil brille, les oiseaux chantent, je sens la douce brise d\'air frais caresser mon visage, et le sable chaud passer entre mes orteils. La mer est calme aujourd\'hui, les enfants jouent avec leurs parents et profitent de la douce nature qui nous entoure. Je marche le long des dunes en souriant et je repense à ces moments de bonheur qui...\n\nDriiiiiiiiiiiiiiiiing\n\nQuoi ? Qu\'est-ce que... Ah... C\'était un rêve... Bon, tant pis, je me lève.\n\nDriiiiiiiiiiiiiiiiing\n\nAh, foutu téléphone... Je regarde par la fenêtre, évidemment il pleut. La journée commence bien...\n\nDriiiiiiiiiiiiiiiiing\n\nOui, oui, ça va j\'arrive ! J\'enfile un pantalon et un t-shirt, et respire un grand coup. C\'est sûrement le boulot qui m\'appelle...</string>
+    <string name="first_call">Driiiiiiiiiiiiiiiiing\n\n\"Oui, allo ?\"\n\n\"Bonjour, je parle bien à %1$s %2$s %3$s ?\"</string>
 
 </resources>

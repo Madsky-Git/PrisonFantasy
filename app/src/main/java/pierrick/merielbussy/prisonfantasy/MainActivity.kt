@@ -2,6 +2,7 @@ package pierrick.merielbussy.prisonfantasy
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings.Global.getString
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
@@ -14,6 +15,7 @@ var lastname = ""
 var firstname = ""
 var age = 0
 var gender = ""
+var gendertitle = ""
 var height = 0
 var weight = 0
 
@@ -62,6 +64,9 @@ class MainActivity : AppCompatActivity() {
         })
         userManager.userGenderFlow.asLiveData().observe(this, {
             gender = it
+        })
+        userManager.userGenderTitleFlow.asLiveData().observe(this, {
+            gendertitle = it
         })
         userManager.userAgeFlow.asLiveData().observe(this, {
             age = it

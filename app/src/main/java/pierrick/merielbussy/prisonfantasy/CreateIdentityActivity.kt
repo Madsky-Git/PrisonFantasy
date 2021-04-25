@@ -15,7 +15,6 @@ class CreateIdentityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_create_identity)
 
         activityNumber = 1
-        userManager.saveUser()
 
         gender = getString(R.string.result_gender_f)
 
@@ -44,6 +43,7 @@ class CreateIdentityActivity : AppCompatActivity() {
                 height = characterHeight.text.toString().toInt()
                 weight = characterWeight.text.toString().toInt()
                 gender = resultGender.text.toString()
+                genderToTitle()
                 // POSSIBLEMENT INUTILE
                 age = age.toString().toInt()
                 //
@@ -61,6 +61,14 @@ class CreateIdentityActivity : AppCompatActivity() {
                     nextIntent()
                 }
             }
+        }
+    }
+
+    private fun genderToTitle() {
+        gendertitle = if (gender == getString(R.string.result_gender_f)) {
+            getString(R.string.gender_title_f)
+        } else {
+            getString(R.string.gender_title_m)
         }
     }
 
