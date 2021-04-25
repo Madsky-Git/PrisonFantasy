@@ -30,7 +30,6 @@ class CreateIdentityActivity : AppCompatActivity() {
     }
 
     fun onValidate(button:View) {
-        calculateAge()
 
         when {
             createLastName.text.isEmpty() -> Toast.makeText(applicationContext, getString(R.string.error_lastname_empty), Toast.LENGTH_LONG).show()
@@ -43,10 +42,14 @@ class CreateIdentityActivity : AppCompatActivity() {
                 height = characterHeight.text.toString().toInt()
                 weight = characterWeight.text.toString().toInt()
                 gender = resultGender.text.toString()
+
                 genderToTitle()
-                // POSSIBLEMENT INUTILE
-                age = age.toString().toInt()
-                //
+
+                rYear = datePicker.year
+                rMonth = datePicker.month
+                rDay = datePicker.dayOfMonth
+
+                calculateAge()
 
                 if (age <18){
                     Toast.makeText(applicationContext, getString(R.string.error_age_value), Toast.LENGTH_LONG).show()
@@ -75,9 +78,6 @@ class CreateIdentityActivity : AppCompatActivity() {
     private fun initDatePicker() {
         datePicker.init(cYear, cMonth, cDay) {
             view, year, monthOfYear, dayOfMonth ->
-            rYear = datePicker.year
-            rMonth = datePicker.month
-            rDay = datePicker.dayOfMonth
         }
     }
 

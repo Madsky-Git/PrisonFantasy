@@ -41,19 +41,12 @@ class UserManager(context: Context) {
     }
 
     val userLastNameFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {it[CHAR_LASTNAME_KEY] ?: ""}
-
     val userFirstNameFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {it[CHAR_FIRSTNAME_KEY] ?: ""}
-
     val userAgeFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[CHAR_AGE_KEY] ?: 0}
-
     val userHeightFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[CHAR_HEIGHT_KEY] ?: 0}
-
     val userGenderFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {it[CHAR_GENDER_KEY] ?: ""}
-
     val userGenderTitleFlow: kotlinx.coroutines.flow.Flow<String> = dataStore.data.map {it[CHAR_GENDER_TITLE_KEY] ?: ""}
-
     val userWeightFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[CHAR_WEIGHT_KEY] ?: 0}
-
     val userActivityFlow: kotlinx.coroutines.flow.Flow<Int> = dataStore.data.map {it[ACTIVITY_KEY] ?: 0}
 
     fun saveUser() {
