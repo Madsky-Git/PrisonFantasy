@@ -8,6 +8,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_create_identity.*
 
+var rYear = 0
+var rMonth = 0
+var rDay = 0
+
 class CreateIdentityActivity : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +19,7 @@ class CreateIdentityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_create_identity)
 
         activityNumber = 1
+        userManager.saveUser()
 
         gender = getString(R.string.result_gender_f)
 
@@ -90,10 +95,5 @@ class CreateIdentityActivity : AppCompatActivity() {
     private fun nextIntent() {
         val intent = Intent(this, ConfirmIdentityActivity::class.java)
         startActivity(intent)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        userManager.saveUser()
     }
 }

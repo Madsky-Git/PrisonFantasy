@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings.Global.getString
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.asLiveData
 import java.util.*
@@ -11,22 +12,10 @@ import java.util.*
 lateinit var userManager: UserManager
 lateinit var activityName: Class<*>
 
-var lastname = ""
-var firstname = ""
-var age = 0
-var gender = ""
-var gendertitle = ""
-var height = 0
-var weight = 0
-
 val c: Calendar = Calendar.getInstance()
 val cYear = c.get(Calendar.YEAR)
 val cMonth = c.get(Calendar.MONTH)
 val cDay = c.get(Calendar.DAY_OF_MONTH)
-
-var rYear = 0
-var rMonth = 0
-var rDay = 0
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +32,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun resumeStory(button: View) {
-        ConversionIntToClassName().convertInt(activityNumber)
+        if (activityNumber == 0) {
+            Toast.makeText(applicationContext, "Vous devez créer un nouveau personnage", Toast.LENGTH_LONG).show()
+        }
+        else {
+            ConversionIntToClassName().convertInt(activityNumber)
 
-        val intent = Intent(this, activityName)
-        startActivity(intent)
+            val intent = Intent(this, activityName)
+            startActivity(intent)
+        }
     }
 
     private fun storedData() {

@@ -13,8 +13,9 @@ class ConfirmIdentityActivity : AppCompatActivity() {
         setContentView(R.layout.activity_confirm_identity)
 
         activityNumber = 2
+        userManager.saveUser()
 
-        textSummary.text = getString(R.string.test_string, firstname, lastname, rDay, rMonth+1, rYear, age, height, weight, gender)
+        textSummary.text = getString(R.string.identity_review, firstname, lastname, rDay, rMonth+1, rYear, age, height, weight, gender)
     }
 
     fun onValidate(button: View) {
@@ -52,10 +53,5 @@ class ConfirmIdentityActivity : AppCompatActivity() {
     private fun nextIntent() {
         val intent = Intent(this, StoryStartActivity::class.java)
         startActivity(intent)
-    }
-
-    override fun onStop() {
-        super.onStop()
-        userManager.saveUser()
     }
 }

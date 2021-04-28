@@ -11,6 +11,14 @@ import kotlinx.coroutines.launch
 
 var activityNumber = 0
 
+var lastname = ""
+var firstname = ""
+var age = 0
+var gender = ""
+var gendertitle = ""
+var height = 0
+var weight = 0
+
 private val Context.dataStore by preferencesDataStore("user_prefs")
 
 class UserManager(context: Context) {

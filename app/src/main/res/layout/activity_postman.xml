@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StoryStartActivity">
+    tools:context=".PostmanActivity">
 
     <LinearLayout
-        android:id="@+id/fragmentTextStartStory"
+        android:id="@+id/fragmentTextPostMan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="80dp"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentChoiceStoryStart"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentChoiceFirstCall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textStartStory"
+            android:id="@+id/textPostMan"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="32dp"
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/fragmentChoiceStoryStart"
+        android:id="@+id/fragmentChoicePostMan"
         android:layout_width="0dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/nextButtonStoryStart"
+            android:id="@+id/nextButtonPostMan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"

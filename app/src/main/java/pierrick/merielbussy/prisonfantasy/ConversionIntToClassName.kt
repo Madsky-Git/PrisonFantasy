@@ -8,6 +8,7 @@ class ConversionIntToClassName {
             2 -> activityName = ConfirmIdentityActivity::class.java
             3 -> activityName = StoryStartActivity::class.java
             4 -> activityName = FirstCallActivity::class.java
+            5 -> activityName = PostmanActivity::class.java
         }
     }
 }
